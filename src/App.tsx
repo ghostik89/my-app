@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from "react-toastify";
+import { SearchFormBlock } from "./components/SearchFormBlock";
+import { SearchStubBlock } from "./components/searchUtils/SearchStubBlock";
+import { UserBlock } from "./components/UserBlock";
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <div className="main-container">
+      <UserBlock favoriteItemsAmount={0}/>
+      <div className="container">
+        <SearchFormBlock/>
+        <div className="results">
+          <SearchStubBlock />
+        </div>
+      </div>
     </div>
+    </>
   );
 }
-
-export default App;
